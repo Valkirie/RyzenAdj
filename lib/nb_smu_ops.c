@@ -40,7 +40,7 @@ u32 smu_service_req(smu_t smu ,u32 id ,smu_service_args_t *args)
 	return response;
 }
 
-int smu_service_test(smu_t smu)
+static int smu_service_test(smu_t smu)
 {
 	u32 response = 0x0;
 
@@ -74,7 +74,7 @@ smu_t get_smu(nb_t nb, int smu_type) {
 	/* Fill SMU information */
 	switch(smu_type){
 		case TYPE_MP1:
-			if (family == FAM_REMBRANDT || family == FAM_VANGOGH || family == FAM_MENDOCINO || family == FAM_PHOENIX) {
+			if (family == FAM_REMBRANDT || family == FAM_VANGOGH || family == FAM_MENDOCINO || family == FAM_PHOENIX || family == FAM_HAWKPOINT) {
 				smu->msg = MP1_C2PMSG_MESSAGE_ADDR_2;
 				smu->rep = MP1_C2PMSG_RESPONSE_ADDR_2;
 				smu->arg_base = MP1_C2PMSG_ARG_BASE_2;
